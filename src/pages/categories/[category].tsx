@@ -1,4 +1,4 @@
-import { GetServerSideProps, GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import HomePage from "../../containers/HomePage";
 import { getAllPosts } from "../../data/posts/get-all-posts";
 import { PostData } from "../../domain/posts/post";
@@ -13,12 +13,11 @@ const Category = ({ posts, category }: CategoryProps) => (
 );
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
-    const { category } = ctx.query;
-    const urlQuery = `_sort=id:desc&_start=0&_limit=30&category.name_contains=${category}`;
+    const urlQuery = `_sort=id:desc&_start=0&_limit=30&category.name_contains=${ctx.query.category}`;
     const posts = await getAllPosts(urlQuery);
 
     return {
-        props: { posts, category },
+        props: { posts, category: ctx.query.category },
     };
 };
 
