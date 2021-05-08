@@ -23,13 +23,14 @@ export default function Post({ post }: PostProps) {
                 <PostCover
                     coverUrl={
                         post.cover.formats.large?.url ||
-                        post.cover.formats.medium.url
+                        post.cover.formats.medium?.url ||
+                        post.cover.formats.small.url
                     }
-                    alt={post.cover.name}
+                    alt={post.cover?.name}
                 />
                 <PostDetails
-                    author={post.author.name}
-                    category={post.category.name}
+                    author={post.author?.name || "[NÃO ESPECIFICADO]"}
+                    category={post.category?.name || "[NÃO ESPECIFICADO]"}
                     date={post.created_at}
                 />
                 <PostContainer content={post.content} />

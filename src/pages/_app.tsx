@@ -3,11 +3,10 @@ import { AppProps } from "next/app";
 import styled, { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "../styles/Global_Styles";
 import { theme } from "../styles/theme";
-import { Theme } from "../styles/styled-components";
 
-const Container = styled.div`
-    background: ${({ theme }) => theme.colors.primary};
-`;
+// const Container = styled.div`
+//     background: ${({ theme }) => theme.colors.primary};
+// `;
 
 function MyApp({ Component, pageProps }: AppProps) {
     return (

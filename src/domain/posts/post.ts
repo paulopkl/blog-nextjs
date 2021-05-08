@@ -26,11 +26,11 @@ export type PostCreatedBy = {
 };
 
 export type PostCoverFormat = {
+    name: string;
     ext: string;
     url: string;
     hash: string;
     mime: string;
-    name: string;
     path: null;
     size: number;
     width: number;
@@ -66,8 +66,8 @@ export type PostData = {
     slug: string;
     author: PostAuthor;
     category: PostCategory;
-    created_by: PostCreatedBy;
-    updated_by: PostCreatedBy;
+    created_by?: PostCreatedBy;
+    updated_by?: PostCreatedBy;
     created_at: string;
     updated_at: string;
     cover: PostCover;
