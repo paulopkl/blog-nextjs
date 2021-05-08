@@ -28,7 +28,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps = async (ctx: any) => {
     const posts: PostData[] = await getPost(ctx.params.slug);
     const post = posts.length > 0 ? posts[0] : {};
-    console.log("post", post);
 
     return {
         props: { post },

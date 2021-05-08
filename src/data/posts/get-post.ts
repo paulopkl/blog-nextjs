@@ -9,7 +9,5 @@ export async function getPost(slug: string | string[]): Promise<PostData[]> {
     const jsonPosts = await fetchJson<PostData[]>(url);
     const content = await markdownToHtml(jsonPosts[0].content);
     const finalContent = [{ ...jsonPosts[0], content }];
-    // console.log("FINAL content:::::::::", finalContent);
     return finalContent;
 }
-// https://safe-headland-36029.herokuapp.com/posts?slug_contains=it-support-intern
