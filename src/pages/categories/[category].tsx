@@ -1,5 +1,4 @@
 import { GetServerSideProps, GetStaticProps } from "next";
-// import { useEffect, useState } from "react";
 import HomePage from "../../containers/HomePage";
 import { getAllPosts } from "../../data/posts/get-all-posts";
 import { PostData } from "../../domain/posts/post";
