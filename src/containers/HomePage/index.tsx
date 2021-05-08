@@ -6,11 +6,14 @@ import { MainContainer } from "../../components/MainContainer";
 import { PostCard } from "../../components/PostCard";
 import { SITE_NAME } from "../../config/app-config";
 import { HomeProps } from "../../pages";
-import { Container } from "./styles";
+import { CategoryProps } from "../../pages/categories/[category]";
+import { Category, Container } from "./styles";
 
-export type HomePageProps = HomeProps;
+export type HomePageProps = HomeProps & {
+    category?: string;
+};
 
-export default function HomePage({ posts }: HomePageProps) {
+export default function HomePage({ posts, category }: HomePageProps) {
     return (
         <>
             <Head>
@@ -18,6 +21,7 @@ export default function HomePage({ posts }: HomePageProps) {
                 <meta name="description" content="This's my tech blog" />
             </Head>
             <Header />
+            {category && <Category>Category: {category}</Category>}
             <MainContainer>
                 <Container>
                     {posts.map((post, i) => (

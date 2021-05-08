@@ -1,5 +1,6 @@
 import { Date } from "../Date";
 import { Container } from "./styled";
+import Link from "next/link";
 
 export interface DateDetailsProps {
     date: string;
@@ -10,7 +11,8 @@ export interface DateDetailsProps {
 export const PostDetails = ({ date, author, category }: DateDetailsProps) => {
     return (
         <Container>
-            Published By <Date date={date} /> by {author} | {category}
+            Published By <Date date={date} /> by {author} |
+            <Link href={`/categories/${category}`}>{" " + category}</Link>
         </Container>
     );
 };
