@@ -17,7 +17,7 @@ export default function HomePage({ posts, category }: HomePageProps) {
     return (
         <>
             <Head>
-                <title>{SITE_NAME}</title>
+                <title>{category ? `${category} - ${SITE_NAME}` : SITE_NAME}</title>
                 <meta name="description" content="This's my tech blog" />
             </Head>
             <Header />
@@ -31,9 +31,6 @@ export default function HomePage({ posts, category }: HomePageProps) {
                             slug={post.slug}
                             title={post.title}
                         />
-                        // <h2 style={{ background: "red" }} key={i}>
-                        //     {post.title}
-                        // </h2>
                     ))}
                 </Container>
             </MainContainer>
